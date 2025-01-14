@@ -1,7 +1,8 @@
 
 POSTGRES_USER = "calendar"
 POSTGRES_PASSWORD = "calendar"
-POSTGRES_HOST = "calendar_postgres"
+POSTGRES_HOST = "localhost"
+# POSTGRES_HOST = "calendar_postgres"
 POSTGRES_PORT = 5432
 POSTGRES_DB = "calendar"
 
