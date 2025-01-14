@@ -11,6 +11,7 @@ class Event(DB_Base):
     start = Column(DateTime, nullable=False)
     end = Column(DateTime, nullable=False)
     name = Column(String(128), nullable=False)
+    notes = Column(String(1024), nullable=True)
     
     user_id = Column(Integer, ForeignKey('users.id'))
     user = relationship("User", back_populates="events")

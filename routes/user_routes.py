@@ -106,4 +106,5 @@ async def get_events(query: EventQueryModel, db: Session = Depends(get_db)):
         events = events.filter(Event.end <= query.end)
     if query.search_string:
         events = events.filter(Event.name.ilike(f"%{query.search_string}%"))
+        events = events.filter(Event.notes.ilike(f"%{query.search_string}%"))
     return events.all()
