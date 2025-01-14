@@ -9,6 +9,8 @@ engine = create_engine(config.SQLALCHEMY_POSTGRES_DATABASE_URI)
 DB_Session_Maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 from models.log_entry_model import LogEntry
+from models.user_model import User
+from models.event_model import Event
 
 DB_Base.metadata.create_all(bind=engine)
 

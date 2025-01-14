@@ -7,9 +7,12 @@ class Event(DB_Base):
     __tablename__ = 'events'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    
     start = Column(DateTime, nullable=False)
     end = Column(DateTime, nullable=False)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    name = Column(String(128), nullable=False)
+    
+    user_id = Column(Integer, ForeignKey('users.id'))
     user = relationship("User", back_populates="events")
 
     def __repr__(self):
