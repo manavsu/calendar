@@ -72,6 +72,9 @@ async def create_event(event: EventCreationModel, db: Session = Depends(get_db))
     log.info(f"Creating event {event}")
     user = verify_user(event.email, event.password, db)
     
+    if event.start > event.end:
+        raise HTTPException(status_code=400, detail="Invalid start and end times")
+    
     new_event = Event(start=event.start, end=event.end, name=event.name, user_id=user.id)
     
     db.add(new_event)
