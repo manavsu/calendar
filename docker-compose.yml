@@ -1,0 +1,8 @@
+services:
+  calendar_postgres:
+    container_name: calendar_postgres
+    build:
+      context: ./postgres
+      dockerfile: ./Dockerfile
+    ports:
+      - "5432:5432"
